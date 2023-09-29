@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Búsqueda de Zapatos</title>
+  <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+  <button class="goToResult" onclick="gotoLogin()">Cerrrar sesión</button>
+  <h1>Búsqueda de Zapatos</h1>
+  <label for="searchInput">Ingrese su consulta:</label>
+  <input type="text" id="searchInput" autocomplete="off" oninput="handleInputChange()">
+  <p id="result"></p>
+  <div id="buttonContainer">
+    <button id="goToResultButton". class="goToResult" style="display: none;" onclick="goToResult()">Ver zapatos</button>
+  </div>
+  
+<!--
+  <div class="cajas">
+    <div id="shoeBoxes"></div>
+  </div>
+-->
+
+  <div class="carousel-container">
+    <div class="carousel carousel-left">
+      <div class="brandContainer" id="leftContainer"></div>
+    </div>
+
+    <div class="cajas">
+      <div id="shoeBoxes"></div>
+    </div>
+
+    <div class="carousel carousel-right">
+      <div class="brandContainer" id="rightContainer"></div>
+    </div>
+  </div>
+  
+  <button onclick="volverArriba()" id="btnVolverArriba" title="Volver arriba">↑</button>
+
+
+  <script src="./index.js"></script>
+</body>
+</html>

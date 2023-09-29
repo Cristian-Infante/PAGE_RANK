@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Iniciar sesión</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    label {
+      text-align: center;
+    }
+    input {
+      text-align: center;
+      border-radius: 5px;
+      border: 1px solid #000;
+    }
+
+    .container {
+      width: 300px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      border: 1px solid #000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .container h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      display: block;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .message {
+      text-align: center;
+    }
+
+    button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Iniciar sesión</h2>
+    <div class="form-group">
+      <label for="username">USUARIO</label>
+      <input type="text" id="username" name="username" autocomplete="off" required>
+    </div>
+    <div class="form-group">
+      <label for="password">CONTRASEÑA</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button onclick="login()">Iniciar sesión</button>
+    <p class="message" id="message"></p>
+  </div>
+
+  <script>
+    var usuarios = [{
+        usuario: '160004518',
+        clave: '123'
+      },
+      {
+        usuario: '160004519',
+        clave: '123'
+      }
+    ];
+
+    function login() {
+      var usernameInput = document.getElementById('username');
+      var passwordInput = document.getElementById('password');
+      var messageElement = document.getElementById('message');
+
+      var username = usernameInput.value;
+      var password = passwordInput.value;
+
+      var user = usuarios.find(function (user) {
+        return user.usuario === username && user.clave === password;
+      });
+
+      if (user) {
+        // Redirigir a la nueva página HTML con el parámetro de usuario
+        window.location.href = 'pagerank.html?usuario=' + encodeURIComponent(username);
+      } else {
+        messageElement.innerText = 'Usuario o contraseña incorrectos.';
+        messageElement.style.color = 'red';
+      }
+
+      // Limpiar los campos de entrada
+      usernameInput.value = '';
+      passwordInput.value = '';
+    }
+  </script>
+</body>
+
+</html>
